@@ -1,8 +1,10 @@
 package pets_amok;
 
+
 import java.util.Scanner;
 
-public class Application {
+public class VirtualPetShelterApp {
+
     public static void main(String[] args) {
 
         VirtualPet petC = new RoboticDog("Clelion" ,"wild", "testing", 0, 0, 0,5,3); //5 happy
@@ -34,7 +36,8 @@ public class Application {
             System.out.println("[3] Play with pet you like");
             System.out.println("[4] Adopt a pet");
             System.out.println("[5] Admit a pet");
-            System.out.println("[6] Monitor Status");
+            System.out.println("[6 Walk the pet");
+            System.out.println("[7] Monitor Status");
             select = input.nextInt();
 
 
@@ -67,7 +70,7 @@ public class Application {
 
 
             }
-            else if (select == 4) {
+        else if (select == 4) {
                 System.out.println("So! You want to take a pet? Choose from the following.");
                 for (VirtualPet adoptPet : pets.getAllPets()) {
                     System.out.println(adoptPet.getName() + " " + adoptPet.getDescription());
@@ -89,22 +92,39 @@ public class Application {
                 String petDescription = input.nextLine();
                 System.out.println("What type of pet");
                 String petType = input.nextLine();
-                if (petType.toLowerCase().equals("roboticdog")){
-                    VirtualPet petG = new RoboticDog(newPet, petDescription);
-                    pets.add(petF);
+
+                if (petType.equalsIgnoreCase("roboticdog")) {
+                    VirtualPet petG = new RoboticDog(newPet, petDescription); //type of pet you have to select
+                    pets.add(petG);
+                }
+                if (petType.equalsIgnoreCase("roboticcat")) {
+                    VirtualPet petG = new RoboticCat(newPet, petDescription);
+                    pets.add(petG);
+                }
+                if (petType.equalsIgnoreCase("organicdog")) {
+                    VirtualPet petG = new OrganicDog(newPet, petDescription);
+                    pets.add(petG);
+                }
+                if (petType.equalsIgnoreCase("organiccat")) { //if(petType.toLowerCase().equals("organiccat")){
+                    VirtualPet petG = new OrganicCat(newPet, petDescription);
+                    pets.add(petG);
                 }
 
                 System.out.println("Taking in " + newPet);
+                System.out.println(pets.getAllPets());
+            }else if (select == 6){
+                System.out.println("You'd like to take pet for a walk");
+                pets.walkPet();
 
-            } else if (select == 6){
+            } else if (select == 7){
                 System.out.println("Loading... ");
                 System.out.println();
                 System.out.println();
                 System.out.println(" -vv- current status -vv-");
-                pets.outPutPet();
+               pets.outPutPet();
 
             }
-            else {
+        else {
                 System.out.println("Wrong number, what are you doing?");
             }
             pets.tick();
@@ -112,6 +132,4 @@ public class Application {
 
 
     }
-
-
 }
