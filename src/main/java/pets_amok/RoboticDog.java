@@ -11,6 +11,8 @@ public class RoboticDog extends RoboticPet{
 
     @Override
     public void walkPet() {
+        happy +=5;
+
 
     }
 

@@ -15,9 +15,9 @@ public class OrganicCat extends OrganicPet {
 
     }
 
-
+    @Override
     public int cleanWaste() {
-        waste -=4;
+        waste =0;
         return waste;
     }
 

@@ -10,6 +10,7 @@ public abstract class OrganicPet extends VirtualPet implements Organic {
 
     public OrganicPet(String newPet, String petDescription) {
         super(newPet, petDescription);
+        this.waste = 0;
 
     }
 

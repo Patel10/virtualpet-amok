@@ -7,10 +7,10 @@ public class VirtualPetShelterApp {
 
     public static void main(String[] args) {
 
-        VirtualPet petC = new RoboticDog("Clelion" ,"wild", "testing", 0, 0, 0,5,3); //5 happy
-        VirtualPet petD = new RoboticCat("Pella", "dog", "testing2", 0, 0, 0,5,3);
-        VirtualPet petE = new OrganicCat("Rowdy", "dog", "testing3", 0, 0, 0,4,3);
-        VirtualPet petF = new OrganicDog("Test","dog","testing4",0,0,0,4,3);
+        VirtualPet petC = new RoboticDog("Clelion" ,"dog", "Loud", 0, 0, 0,5,3); //5 happy
+        VirtualPet petD = new RoboticCat("Pella", "cat", "Sweet", 0, 0, 0,5,3);
+        VirtualPet petE = new OrganicCat("Rowdy", "cat", "Short temper", 0, 0, 0,4,3);
+        VirtualPet petF = new OrganicDog("Test","dog","Slim slick",0,0,0,4,3);
 
         VirtualPetShelter pets = new VirtualPetShelter();
         pets.add(petC);
@@ -36,10 +36,14 @@ public class VirtualPetShelterApp {
             System.out.println("[3] Play with pet you like");
             System.out.println("[4] Adopt a pet");
             System.out.println("[5] Admit a pet");
-            System.out.println("[6 Walk the pet");
-            System.out.println("[7] Monitor Status");
+            System.out.println("[6] Walk the pet");  // 9 and 10 cleanCage and 10 cleanLitterBox
+            System.out.println("[7] Oil Robot Pet"); //
+            System.out.println("[8] Clean Dog Cage");
+            System.out.println("[9] Clean Cat Litterbox");
+            System.out.println("[10] Monitor Status");
             select = input.nextInt();
 
+            input.nextLine();
 
             if (select == 0) {
                 System.out.println("Oops you have walked out the shelter. ");
@@ -78,7 +82,6 @@ public class VirtualPetShelterApp {
                 System.out.println("Which pet? Not all..");
                 input.nextLine();
                 String adoptPet = input.nextLine();
-
                 pets.remove(adoptPet);
                 System.out.println("Great call! Pet " + adoptPet + " yours to take.");
 
@@ -111,12 +114,23 @@ public class VirtualPetShelterApp {
                 }
 
                 System.out.println("Taking in " + newPet);
-                System.out.println(pets.getAllPets());
-            }else if (select == 6){
+
+            }else if (select == 6) {
                 System.out.println("You'd like to take pet for a walk");
                 pets.walkPet();
+            } else if (select == 7) {
+                System.out.println("You'd like to Oil your pets?");
+                pets.oilRobotPets();
+                System.out.println("Good choice, all are now oiled.");
+            } else if (select == 8) {
+                System.out.println("Cleaning the Cages...");
+                pets.cleanCage();
+            } else if (select == 9) {
+                System.out.println("Cleaning the LitterBox");
+                pets.cleanLitterBox();
+                System.out.println();
 
-            } else if (select == 7){
+            } else if (select == 10){
                 System.out.println("Loading... ");
                 System.out.println();
                 System.out.println();
@@ -133,3 +147,4 @@ public class VirtualPetShelterApp {
 
     }
 }
+

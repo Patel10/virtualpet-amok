@@ -2,6 +2,7 @@ package pets_amok;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Or;
 
 import java.util.Collection;
 
@@ -79,6 +80,40 @@ public void restAllPet(){
 
 
 }
-
-
+//@Test
+//public void walkPet(){
+//    underTest.walkPet();
+//    assertEquals(walkPet();)
+//
+//}
+//@Test
+//public void shouldOilAllRoboticPets() {
+//    underTest.add(RoboticDog);
+//    underTest.add(RoboticPet);
+//    underTest.oilRobotPets();
+//    VirtualPet PetC = RoboticDog.oilPet();
+//    VirtualPet PetF = RoboticDog.oilPet();
+//    assertEquals(15, petC);
+//    assertEquals(15, petF);
+//}
+@Test
+public void assertThatOilLevelsIncreaseWithOilMethod() {
+    RoboticDog underTest = new RoboticDog("", "");
+    underTest.oilPet();
+    int check = underTest.getOilLevel();
+    assertEquals(40, check, 45);
+}
+    @Test
+    public void assertThatOilAllRobotsWorks() {
+        VirtualPetShelter underTest = new VirtualPetShelter();
+        underTest.add(new RoboticCat("a", ""));
+        underTest.add(new RoboticDog("a", ""));
+        underTest.oilRobotPets();
+        assertEquals(assertThatOilAllRobotsWorks();
+    }
+    @Test
+    public void shouldReturnPetTypeAsOrganic() {
+        Collection<VirtualPet> check = underTest.getAllPets();
+        assertEquals (check, "Organic");
+}
 }

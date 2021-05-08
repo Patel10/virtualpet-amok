@@ -52,9 +52,32 @@ public class VirtualPetShelter {
 
         }
     }
+    //amok project methods
     public void walkPet() {
         for (VirtualPet pet : pets.values()) {
             pet.walkPet();
+
+        }
+    }
+    public void oilRobotPets(){
+            for( VirtualPet current : pets.values()){
+                if (current instanceof Robotic){
+                    ((Robotic)current).oilPet();
+                }
+            }
+        }
+    public void cleanCage(){
+        for( VirtualPet current : pets.values()){
+            if(current instanceof OrganicDog){
+                ((OrganicDog)current).cleanWaste();
+            }
+        }
+    }
+    public void cleanLitterBox(){
+        for (VirtualPet current : pets.values()){
+            if(current instanceof OrganicCat){
+                ((OrganicCat)current).cleanWaste();
+            }
         }
     }
     public void playWithPet(String petName){

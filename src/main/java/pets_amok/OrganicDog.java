@@ -11,14 +11,15 @@ public class OrganicDog extends OrganicPet {
 
     @Override
     public void walkPet() {
+        happy +=5;
+        cleanWaste();
 
     }
 
-    //took out the override
+    @Override
     public int cleanWaste() {
-        waste += 4;
+        waste -= 4;
         return waste;
-
 
     }
 
